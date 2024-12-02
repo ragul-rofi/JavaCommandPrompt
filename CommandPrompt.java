@@ -19,6 +19,13 @@ public class CommandPrompt {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600,400);
 
+        try {
+            Image logo = Toolkit.getDefaultToolkit().getImage(CommandPrompt.class.getResource("/logo.jpeg"));
+            frame.setIconImage(logo);
+        } catch (Exception e) {
+            System.out.println("Logo cannot be loaded");
+        }
+
         // Area to display 
 
 
@@ -29,9 +36,11 @@ public class CommandPrompt {
         terminalArea.setBackground(Color.DARK_GRAY);
         terminalArea.setForeground(Color.WHITE);
         terminalArea.setFont(new Font("Consolas", Font.BOLD, 16));
-        terminalArea.append("Welcome to Ragul's Command Prompt!\n");
+        terminalArea.append("\nWelcome to Ragul's Command Prompt!\n");
         terminalArea.append("Enter 'exit' to quit.\n");
         terminalArea.append("\n");
+        terminalArea.setCaretColor(Color.WHITE);
+        
 
         JScrollPane scrollPane = new JScrollPane(terminalArea);
         frame.add(scrollPane,BorderLayout.CENTER);
@@ -42,11 +51,11 @@ public class CommandPrompt {
                 if(e.getKeyCode() == KeyEvent.VK_ENTER){
                     e.consume();
                     String text = terminalArea.getText();
-                    int lastPromptIndex = text.lastIndexOf(currentDir + "% ");
+                    int lastPromptIndex = text.lastIndexOf(currentDir + " % ");
                     if(lastPromptIndex == -1){
                         return;
                     }
-                    String command = text.substring(lastPromptIndex + (currentDir+"% ").length()).trim();
+                    String command = text.substring(lastPromptIndex + (currentDir+" % ").length()).trim();
                     if(!command.isEmpty()){
                         processCommand(command, terminalArea);
                     }
@@ -56,7 +65,7 @@ public class CommandPrompt {
             }
         });
 
-        terminalArea.append(currentDir + "% ");
+        terminalArea.append(currentDir + " % ");
         frame.setVisible(true);
     }
 
@@ -92,7 +101,7 @@ public class CommandPrompt {
 
             default -> terminalArea.append("Unknown command: "+ baseCommand +"\n");
         }
-        terminalArea.append(currentDir + "% ");
+        terminalArea.append(currentDir + " % ");
         return currentDir;
     }
 
