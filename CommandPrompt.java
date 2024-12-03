@@ -20,7 +20,7 @@ public class CommandPrompt {
         frame.setSize(600,400);
 
         try {
-            Image logo = Toolkit.getDefaultToolkit().getImage(CommandPrompt.class.getResource("/logo.jpeg"));
+            Image logo = Toolkit.getDefaultToolkit().getImage(CommandPrompt.class.getResource("/logo.png"));
             frame.setIconImage(logo);
         } catch (Exception e) {
             System.out.println("Logo cannot be loaded");
@@ -33,13 +33,13 @@ public class CommandPrompt {
         terminalArea.setEditable(true);
         terminalArea.setLineWrap(true);
         terminalArea.setWrapStyleWord(true);
-        terminalArea.setBackground(Color.DARK_GRAY);
-        terminalArea.setForeground(Color.WHITE);
+        terminalArea.setBackground(Color.getHSBColor(270, 50, 19));
+        terminalArea.setForeground(Color.BLACK);
         terminalArea.setFont(new Font("Consolas", Font.BOLD, 16));
         terminalArea.append("\nWelcome to Ragul's Command Prompt!\n");
-        terminalArea.append("Enter 'exit' to quit.\n");
+        terminalArea.append("Enter 'exit' or 'Ctrl + q'to quit.\n");
         terminalArea.append("\n");
-        terminalArea.setCaretColor(Color.WHITE);
+        terminalArea.setCaretColor(Color.BLACK);
         
 
         JScrollPane scrollPane = new JScrollPane(terminalArea);
@@ -59,7 +59,7 @@ public class CommandPrompt {
                     if(!command.isEmpty()){
                         processCommand(command, terminalArea);
                     }
-                } else if(e.isControlDown() && e.getKeyCode() == KeyEvent.VK_C){
+                } else if(e.isControlDown() && e.getKeyCode() == KeyEvent.VK_Q){
                     System.exit(0);
                 }
             }
@@ -81,6 +81,7 @@ public class CommandPrompt {
     private static String executeCommand(String command,String currentDir, JTextArea terminalArea) throws IOException {
         String[] parts = command.split("\\s+");
         String baseCommand = parts[0].toLowerCase();
+        
 
         switch (baseCommand){
             case "ls" -> listFiles(currentDir, terminalArea);
@@ -94,6 +95,22 @@ public class CommandPrompt {
             }
             
             case "pwd" -> terminalArea.append(currentDir + "\n");
+
+            case "rmvf" ->{
+                if (parts.length >1){
+                    removeFile(parts[1], terminalArea);
+                }else{
+                    terminalArea.append("Use command like this: rm-f __filename__\n");
+                }
+            }
+
+            case "touch" -> {
+                if(parts.length > 1){
+                    createFile(parts[1], terminalArea);
+                }else{
+                    terminalArea.append("Use command like this: touch __filename__\n");
+                }
+            }
             case "exit" ->{
                 terminalArea.append("Exiting...\n");
                 System.exit(0);
@@ -129,4 +146,32 @@ public class CommandPrompt {
         }
     }
 
-}
+    private static void createFile(String fileName, JTextArea terminalArea){
+        Path newPath = Paths.get(currentDir, fileName);
+
+            try {
+                if(Files.exists(newPath)){
+                    terminalArea.append("File already exists: "+ newPath.getFileName() + "\n");
+                }else{
+                    Files.createFile(newPath);
+                }
+            } catch (IOException e) {
+                terminalArea.append("Error creating file.");
+            }
+    }
+
+    private static void removeFile(String fileName, JTextArea terminalArea){      
+        Path path = Paths.get(fileName).normalize();
+        File file = path.toFile();
+        if(file.exists()){
+            try{
+                Files.delete(path);
+                terminalArea.append("File '"+fileName+"' deleted.\n");
+            }catch (IOException e) {
+                terminalArea.append("Error deleteing file!");
+            }
+        }else{
+            terminalArea.append("File not found: "+fileName+"\n");
+        }
+    }  
+} 
