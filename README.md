@@ -12,13 +12,15 @@ This project is a simple command-line interface (CLI) implemented using Java and
     - `cd <directory>`: Change the current directory.
     - `pwd`: Display the current directory path.
     - `ls`: List files in the current directory.
+    - `touch`: Creates a new empty file.
+    - `rmvf`: Deletes the file in the directory.
   
 - **Exit the Program**:
     - `exit`: Exit the terminal.
   
 - **Keyboard Shortcuts**:
     - **Enter**: Submit a command.
-    - **Ctrl + C**: Exit the application.
+    - **Ctrl + q**: Exit the application.
 
 ## Installation
 
@@ -50,9 +52,11 @@ Once the program starts, a window will appear that simulates a terminal. The cur
 *   `cd` to change the current directory.
     
 *   `pwd` to show the current directory path.
+*   `touch` to create a new file.
+*   `rmvf` deletes the file.
     
 *   `exit` to close the terminal.
-    
+        
 
 Contributions
 
