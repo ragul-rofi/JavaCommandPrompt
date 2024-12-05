@@ -17,7 +17,7 @@ public class CommandPrompt {
     private static void createAndShowGUI(){
         JFrame frame = new JFrame("Ragul's Command Prompt");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600,400);
+        frame.setSize(900,500);
 
         try {
             Image logo = Toolkit.getDefaultToolkit().getImage(CommandPrompt.class.getResource("/logo.png"));
@@ -33,13 +33,13 @@ public class CommandPrompt {
         terminalArea.setEditable(true);
         terminalArea.setLineWrap(true);
         terminalArea.setWrapStyleWord(true);
-        terminalArea.setBackground(Color.getHSBColor(270, 50, 19));
-        terminalArea.setForeground(Color.BLACK);
-        terminalArea.setFont(new Font("Consolas", Font.BOLD, 16));
+        terminalArea.setBackground(Color.BLACK);
+        terminalArea.setForeground(Color.WHITE);
+        terminalArea.setFont(new Font("Consolas", Font.BOLD, 18));
         terminalArea.append("\nWelcome to Ragul's Command Prompt!\n");
         terminalArea.append("Enter 'exit' or 'Ctrl + q'to quit.\n");
         terminalArea.append("\n");
-        terminalArea.setCaretColor(Color.BLACK);
+        terminalArea.setCaretColor(Color.WHITE);
         
 
         JScrollPane scrollPane = new JScrollPane(terminalArea);
