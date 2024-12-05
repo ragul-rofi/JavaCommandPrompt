@@ -17,7 +17,7 @@ public class CommandPrompt {
     private static void createAndShowGUI(){
         JFrame frame = new JFrame("Ragul's Command Prompt");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(900,500);
+        frame.setSize(00,500);
 
         try {
             Image logo = Toolkit.getDefaultToolkit().getImage(CommandPrompt.class.getResource("/logo.png"));
