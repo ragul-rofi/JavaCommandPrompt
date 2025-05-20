@@ -3,12 +3,12 @@ import java.awt.event.*;
 import java.io.*;
 import java.nio.file.*;
 import javax.swing.*;
-
+import javax.swing.border.EmptyBorder;
 
 
 public class CommandPrompt {
 
-    private static String currentDir = System.getProperty("user.dir");
+    private static String currentDir = "C:\\Users\\"+System.getProperty("user.name");
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(CommandPrompt::createAndShowGUI);
@@ -17,10 +17,10 @@ public class CommandPrompt {
     private static void createAndShowGUI(){
         JFrame frame = new JFrame("Ragul's Command Prompt");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(00,500);
+        frame.setSize(800,500);
 
         try {
-            Image logo = Toolkit.getDefaultToolkit().getImage(CommandPrompt.class.getResource("/logo.png"));
+            Image logo = Toolkit.getDefaultToolkit().getImage(CommandPrompt.class.getResource("/logo2.png"));
             frame.setIconImage(logo);
         } catch (Exception e) {
             System.out.println("Logo cannot be loaded");
@@ -33,13 +33,14 @@ public class CommandPrompt {
         terminalArea.setEditable(true);
         terminalArea.setLineWrap(true);
         terminalArea.setWrapStyleWord(true);
-        terminalArea.setBackground(Color.BLACK);
-        terminalArea.setForeground(Color.WHITE);
+        terminalArea.setBackground(Color.WHITE);
+        terminalArea.setForeground(Color.DARK_GRAY);
         terminalArea.setFont(new Font("Consolas", Font.BOLD, 18));
         terminalArea.append("\nWelcome to Ragul's Command Prompt!\n");
         terminalArea.append("Enter 'exit' or 'Ctrl + q'to quit.\n");
         terminalArea.append("\n");
-        terminalArea.setCaretColor(Color.WHITE);
+        terminalArea.setCaretColor(Color.black);
+        terminalArea.setBorder(new EmptyBorder(0,10,5,10));
         
 
         JScrollPane scrollPane = new JScrollPane(terminalArea);
