@@ -1,3 +1,9 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@100..800&family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Lexend+Deca:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Readex+Pro:wght@160..700&display=swap');
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -5,63 +11,79 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    font-family: 'Outfit', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1e1e2f;
+    color: #f5f5f5;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+    align-items: flex-start; /* changed from center */
+    min-height: 100vh;
+    padding: 40px 20px; /* added top and bottom padding */
+    overflow-y: auto; /* allows scroll if content exceeds */
 }
 
 .container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 600px;
+    background-color: #2a2a3c;
+    padding: 40px 30px;  /* increased padding inside the box */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 700px;
 }
+
 
 h1 {
     text-align: center;
-    color: #2c3e50;
+    color: #00ff9f;
     margin-bottom: 20px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .description {
     font-size: 1.1rem;
     margin-bottom: 20px;
     text-align: center;
+    color: #ccc;
 }
 
 ul {
-    list-style-type: none;
-    padding-left: 0;
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 10px;
 }
 
 li {
-    font-size: 1.1rem;
-    margin: 5px 0;
+    font-size: 1.05rem;
+    margin: 10px 0;
+    line-height: 1.6;
+    color: #e0e0e0;
 }
 
 code {
     font-family: "Courier New", monospace;
-    color: #e74c3c;
+    color: #00ff9f;
+    background-color: #1a1a28;
+    padding: 2px 6px;
+    border-radius: 4px;
 }
 
 .screenshot-section {
     text-align: center;
-    margin: 20px 0;
+    margin: 30px 0;
+}
+
+.screenshot-section h2 {
+    margin-bottom: 15px;
+    color: #ff6b6b;
 }
 
 .screenshot {
     width: 100%;
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    object-fit: contain;  /* Ensures the image doesn't stretch */
-    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+    object-fit: contain;
+    margin-top: 10px;
+    border: 2px solid #333;
 }
