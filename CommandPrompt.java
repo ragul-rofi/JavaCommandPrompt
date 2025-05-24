@@ -35,9 +35,24 @@ public class CommandPrompt {
         terminalArea.setWrapStyleWord(true);
         terminalArea.setBackground(Color.WHITE);
         terminalArea.setForeground(Color.DARK_GRAY);
-        terminalArea.setFont(new Font("Consolas", Font.BOLD, 18));
-        terminalArea.append("\nWelcome to Ragul's Command Prompt!\n");
-        terminalArea.append("Enter 'exit' or 'Ctrl + q'to quit.\n");
+        terminalArea.setFont(new Font("Courier New", Font.BOLD, 16));
+        terminalArea.append("\nWelcome to\n");
+        terminalArea.append("\n██████╗   █████╗   ██████╗  ██╗   ██╗ ██╗      ");
+        terminalArea.append("\n██╔══██╗ ██╔══██╗ ██╔════╝  ██║   ██║ ██║      ");
+        terminalArea.append("\n██████╔╝ ███████║ ██║  ███╗ ██║   ██║ ██║      ");
+        terminalArea.append("\n██╔══██╗ ██╔══██║ ██║   ██║ ██║   ██║ ██║      ");
+        terminalArea.append("\n██║  ██║ ██║  ██║ ╚██████╔╝ ╚██████╔╝ ███████╗ ");
+        terminalArea.append("\n ═╝  ╚═╝ ╚═╝  ╚═╝  ╚═════╝   ╚═════╝  ╚══════╝ \n");
+
+        terminalArea.append("\n ██████╗ ███╗   ███╗ ██████╗   ");
+        terminalArea.append("\n██╔════╝ ████╗ ████║ ██╔══██╗  ");
+        terminalArea.append("\n██║      ██╔████╔██║ ██║  ██║  ");
+        terminalArea.append("\n██║      ██║╚██╔╝██║ ██║  ██║   ");
+        terminalArea.append("\n╚██████╔ ██║ ╚═╝ ██║ ██████╔╝   ");
+        terminalArea.append("\n ╚═════╝ ╚═╝     ╚═╝ ╚═════╝    ");
+
+
+        terminalArea.append("\nEnter 'exit' or 'Ctrl + q'to quit.\n");
         terminalArea.append("\n");
         terminalArea.setCaretColor(Color.black);
         terminalArea.setBorder(new EmptyBorder(0,10,5,10));
